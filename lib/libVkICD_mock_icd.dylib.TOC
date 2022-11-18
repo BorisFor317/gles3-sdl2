@@ -1,0 +1,44 @@
+          cmd LC_ID_DYLIB
+      cmdsize 56
+         name @rpath/libVkICD_mock_icd.dylib (offset 24)
+   time stamp 0 Thu Jan  1 03:00:00 1970
+      current version 0.0.0
+compatibility version 0.0.0
+_vk_icdGetInstanceProcAddr T
+_vk_icdGetPhysicalDeviceProcAddr T
+_vk_icdNegotiateLoaderICDInterfaceVersion T
+_vkDestroySurfaceKHR T
+_vkGetPhysicalDeviceSurfaceSupportKHR T
+_vkGetPhysicalDeviceSurfaceCapabilitiesKHR T
+_vkGetPhysicalDeviceSurfaceFormatsKHR T
+_vkGetPhysicalDeviceSurfacePresentModesKHR T
+_vkCreateDisplayPlaneSurfaceKHR T
+_vkGetDeviceGroupSurfacePresentModesKHR T
+_vkGetPhysicalDevicePresentRectanglesKHR T
+_vkGetPhysicalDeviceSurfaceCapabilities2EXT T
+__ZNSt2Cr12__next_primeEm U
+__ZNSt2Cr12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE25__init_copy_ctor_externalEPKcm U
+__ZNSt2Cr12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm U
+__ZNSt2Cr12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev U
+__ZNSt2Cr22__libcpp_verbose_abortEPKcz U
+__ZNSt2Cr5mutex4lockEv U
+__ZNSt2Cr5mutex6unlockEv U
+__ZNSt2Cr5mutexD1Ev U
+__ZdlPv U
+__ZdlPvSt11align_val_t U
+__Znwm U
+__ZnwmSt11align_val_t U
+___cxa_atexit U
+___stack_chk_fail U
+___stack_chk_guard U
+_abort U
+_free U
+_malloc U
+_memcmp U
+_memcpy U
+_memmove U
+_memset U
+_strcpy U
+_strlen U
+_strncpy U
+dyld_stub_binder U

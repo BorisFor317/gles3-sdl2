@@ -1,0 +1,10 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/GLTutorial01",
+    "files.associations": {
+        "gl3.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c",
+        "sdl_opengles2.h": "c",
+        "sdl.h": "c"
+    }
+}

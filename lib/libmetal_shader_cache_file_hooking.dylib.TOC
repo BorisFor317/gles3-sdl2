@@ -1,0 +1,52 @@
+          cmd LC_ID_DYLIB
+      cmdsize 72
+         name @rpath/libmetal_shader_cache_file_hooking.dylib (offset 24)
+   time stamp 0 Thu Jan  1 03:00:00 1970
+      current version 0.0.0
+compatibility version 0.0.0
+__ZNKSt2Cr19__shared_weak_count13__get_deleterERKSt9type_info U
+__ZNKSt2Cr23__match_any_but_newlineIcE6__execERNS_7__stateIcEE U
+__ZNKSt2Cr6locale4nameEv U
+__ZNKSt2Cr6locale9use_facetERNS0_2idE U
+__ZNKSt2Cr8ios_base6getlocEv U
+__ZNSt2Cr12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_no_aliasILb0EEERS5_PKcm U
+__ZNSt2Cr12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE17__assign_no_aliasILb1EEERS5_PKcm U
+__ZNSt2Cr12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE25__init_copy_ctor_externalEPKcm U
+__ZNSt2Cr12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEmc U
+__ZNSt2Cr12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev U
+__ZNSt2Cr12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEc U
+__ZNSt2Cr13basic_ostreamIcNS_11char_traitsIcEEE3putEc U
+__ZNSt2Cr13basic_ostreamIcNS_11char_traitsIcEEE5flushEv U
+__ZNSt2Cr13basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_ U
+__ZNSt2Cr13basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev U
+__ZNSt2Cr13basic_ostreamIcNS_11char_traitsIcEEElsEi U
+__ZNSt2Cr15__get_classnameEPKcb U
+__ZNSt2Cr19__shared_weak_count14__release_weakEv U
+__ZNSt2Cr19__shared_weak_countD2Ev U
+__ZNSt2Cr20__get_collation_nameEPKc U
+__ZNSt2Cr22__libcpp_verbose_abortEPKcz U
+__ZNSt2Cr4cerrE U
+__ZNSt2Cr5ctypeIcE2idE U
+__ZNSt2Cr6localeC1ERKS0_ U
+__ZNSt2Cr6localeC1Ev U
+__ZNSt2Cr6localeD1Ev U
+__ZNSt2Cr7collateIcE2idE U
+__ZNSt2Cr8ios_base5clearEj U
+__ZTVNSt2Cr14__shared_countE U
+__ZTVNSt2Cr19__shared_weak_countE U
+__ZdlPv U
+__ZdlPvSt11align_val_t U
+__Znwm U
+__ZnwmSt11align_val_t U
+___error U
+___stack_chk_fail U
+___stack_chk_guard U
+_abort U
+_fopen U
+_memcmp U
+_memmove U
+_memset U
+_open U
+_strlen U
+_strstr U
+dyld_stub_binder U
