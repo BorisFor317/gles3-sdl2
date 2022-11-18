@@ -35,16 +35,18 @@ int main(int argc, char *argv[]) {
                             SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 
   if (!window) {
-    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error", "Couldn't create the main window", NULL);
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error",
+                             "Couldn't create the main window", NULL);
     return EXIT_FAILURE;
   }
 
   context = SDL_GL_CreateContext(window);
   if (!context) {
-    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error", "Couldn't create an OpenGL context", NULL);
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error",
+                             "Couldn't create an OpenGL context", NULL);
     return EXIT_FAILURE;
   }
-  
+
   // black
   // glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   // red
