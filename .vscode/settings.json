@@ -4,7 +4,13 @@
         "stdlib.h": "c",
         "stdio.h": "c",
         "sdl_opengles2.h": "c",
-        "sdl.h": "c"
+        "sdl.h": "c",
+        "shader.h": "c",
+        "gl3platform.h": "c"
     },
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    // "cmake.debugConfig": {
+    //     "MIMode": "lldb",
+    //     "miDebuggerPath": "/usr/local/bin/lldb-mi"
+    // }
 }

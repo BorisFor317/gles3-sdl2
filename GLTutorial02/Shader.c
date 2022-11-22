@@ -15,6 +15,8 @@ static size_t fileGetLength(FILE *file) {
 
   // return to the original position
   fseek(file, currPos, SEEK_SET);
+
+  return length;
 }
 
 /**
@@ -64,7 +66,7 @@ static GLuint shaderLoad(const char *filename, GLenum shaderType) {
     // Compilation failed
     SDL_Log("Compilation of shader %s failed\n", filename);
     GLint logLength = 0;
-    glGetShaderdiv(shader, GL_INFO_LOG_LENGTH, &logLength);
+    glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &logLength);
     GLchar *errLog = (GLchar *)malloc(logLength);
     if (errLog) {
       glGetShaderInfoLog(shader, logLength, &logLength, errLog);
@@ -89,8 +91,8 @@ static GLuint shaderLoad(const char *filename, GLenum shaderType) {
 static void shaderDestroy(GLuint shaderID) { glDeleteShader(shaderID); }
 
 GLuint shaderProgLoad(const char *vertFilename, const char *fragFilename) {
-  GLuint vertShader;
-  GLuint fragShader;
+  GLuint vertShader = 0;
+  GLuint fragShader = 0;
 
   vertShader = shaderLoad(vertFilename, GL_VERTEX_SHADER);
   if (!vertShader) {
@@ -98,7 +100,7 @@ GLuint shaderProgLoad(const char *vertFilename, const char *fragFilename) {
     return 0;
   }
 
-  fragShader = shaderLoad(vertFilename, GL_FRAGMENT_SHADER);
+  fragShader = shaderLoad(fragFilename, GL_FRAGMENT_SHADER);
   if (!fragShader) {
     SDL_Log("Couldn't load fragment shader: %s\n", fragFilename);
     shaderDestroy(vertShader);
