@@ -9,8 +9,7 @@
         "gl3platform.h": "c"
     },
     "editor.tabSize": 2,
-    // "cmake.debugConfig": {
-    //     "MIMode": "lldb",
-    //     "miDebuggerPath": "/usr/local/bin/lldb-mi"
-    // }
+    "cmake.debugConfig": {
+        "MIMode": "lldb"
+    }
 }

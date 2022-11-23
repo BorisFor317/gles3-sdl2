@@ -17,8 +17,11 @@ typedef struct Vertex_s {
 GLuint vboCreate(const Vertex *vertices, GLuint numVertices) {
   GLuint vbo;
   int nBuffers = 1;
+  // Generate buffer object names
   glGenBuffers(nBuffers, &vbo);
+  // Bind a named buffer object
   glBindBuffer(GL_ARRAY_BUFFER, vbo);
+  // Creates and initializes a buffer object's data store
   glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * numVertices, vertices,
                GL_STATIC_DRAW);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -40,6 +43,34 @@ GLuint vboCreate(const Vertex *vertices, GLuint numVertices) {
  * @param vbo the VBO's name
  */
 void vboFree(GLuint vbo) { glDeleteBuffers(1, &vbo); }
+
+const GLuint TRIANGLE_VERTICES = 3;
+typedef struct Triangle_s {
+  Vertex vertices[TRIANGLE_VERTICES];
+} Triangle;
+
+GLuint createVBO(const Triangle* triangle) {
+  return vboCreate(triangle->vertices, TRIANGLE_VERTICES);
+}
+
+GLboolean drawTriangle(const Triangle* triangle) {
+  GLuint vbo = createVBO(triangle);
+  if (!vbo) {
+    return GL_FALSE;
+  }
+  // Set up for rendering the triangle (activate the VBO)
+  GLuint positionIdx = 0;
+  glBindBuffer(GL_ARRAY_BUFFER, vbo);
+  // Define an array of generic vertex attribute data
+  glVertexAttribPointer(positionIdx, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex),
+                        (const GLvoid *)0);
+  // Enable or disable a generic vertex attribute array
+  glEnableVertexAttribArray(positionIdx);
+  // Draw
+  glDrawArrays(GL_TRIANGLES, 0, TRIANGLE_VERTICES);
+
+  return GL_TRUE;
+};
 
 int main(int argc, char *argv[]) {
   // The window
@@ -80,9 +111,9 @@ int main(int argc, char *argv[]) {
   }
 
   // black
-  // glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   // red
-  glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+  // glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
   // green
   // glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
   // yellow
@@ -92,33 +123,44 @@ int main(int argc, char *argv[]) {
 
   SDL_GL_SwapWindow(window);
 
-  GLuint shaderProg = shaderProgLoad("Simple2D.vert", "Simple2D.frag");
+  GLuint shaderProg = shaderProgLoad("Gradient2D.vert", "Simple2D.frag");
   if (!shaderProg) {
     return EXIT_FAILURE;
   }
 
+  // installs a current program as a part of current rendering state
   glUseProgram(shaderProg);
 
   // Create the triangle
-  const Vertex vertices[] = {{0.0f, -0.9f}, {0.9f, 0.9f}, {-0.9f, 0.9f}};
-  GLsizei numVertices = sizeof(vertices) / sizeof(Vertex);
-  GLuint triangleVBO = vboCreate(vertices, numVertices);
-  printf("OK %d", triangleVBO);
-  if (triangleVBO == 0) {
-    return EXIT_FAILURE;
-  }
+  // const Triangle triangleBottom = {{{0.0f, -0.9f}, {0.9f, -0.1f}, {-0.9f, -0.1f}}};
+  // drawTriangle(&triangleBottom);
+  // const Triangle triangleTop = {{{0.9f, 0.1f},  {-0.9f, 0.1f}, {0.0f, 0.9f}}};
+  // drawTriangle(&triangleTop);
 
-  // Set up for rendering the triangle (activate the VBO)
+  // GLuint triangleBottomVBO = createVBO(&triangleBottom);
 
-  GLuint positionIdx = 0;
-  glBindBuffer(GL_ARRAY_BUFFER, triangleVBO);
-  glVertexAttribPointer(positionIdx, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex),
-                        (const GLvoid *)0);
-                      
-  glEnableVertexAttribArray(positionIdx);
+  // Draw multiple triangles in one draw call
+  // const Vertex vertices[] = {{0.0f, -0.9f}, {0.9f, -0.1f}, {-0.9f, -0.1f},
+  //                            {0.9f, 0.1f},  {-0.9f, 0.1f}, {0.0f, 0.9f}};
+  // GLuint numberOfVertices = sizeof(vertices) / sizeof(Vertex);
+  // GLuint vbo = vboCreate(vertices, numberOfVertices);
+  // if (vbo == 0) {
+  //   return EXIT_FAILURE;
+  // }
 
-  // Draw
-  glDrawArrays(GL_TRIANGLES, 0, numVertices);
+  // // Set up for rendering the triangle (activate the VBO)
+  // GLuint positionIdx = 0;
+  // glBindBuffer(GL_ARRAY_BUFFER, vbo);
+  // // Define an array of generic vertex attribute data
+  // glVertexAttribPointer(positionIdx, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex),
+  //                       (const GLvoid *)0);
+  // // Enable or disable a generic vertex attribute array
+  // glEnableVertexAttribArray(positionIdx);
+  // // Draw
+  // glDrawArrays(GL_TRIANGLES, 0, numberOfVertices);
+
+  const Triangle triangle = {{{0.0f, 1.0f}, {1.0f, -1.0f}, {-1.0f, -1.0f}}};
+  drawTriangle(&triangle);
 
   // Update the window
   SDL_GL_SwapWindow(window);
